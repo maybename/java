@@ -1,0 +1,1 @@
+& 'C:\Program Files\Apache NetBeans\jdk\bin\java.exe' -jar .\console.jar
