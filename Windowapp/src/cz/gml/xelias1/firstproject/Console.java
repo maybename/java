@@ -11,91 +11,73 @@ public class Console {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(calc_text("2+2-1"));
+        System.out.println(calc_text("2+2-1 /2 +2*2"));
     }
-    public static int text_pointer = 0;
-    
-    public static float read_num(String text){
-        float num = 0;
-        int dec = 0;
-        for (int i = text_pointer; i < text.length(); i ++){
-            char c = text.charAt(i);
-            if(c == '.'){
-                dec = 1;
-                continue;
-            }
-            if(c<='9' && c >= '0'){
-                if(dec == 0){
-                    num = num * 10 + c - '0';
-                }
-                else {
-                    num = num + c/Math.powExact(10, dec);
-                    dec += 1;
-                }
-                continue;
-            }
-            text_pointer = i-1; //set pointer to last index of the number, not to leading character
-            return num;
-        }
-        return num;
-    }
-    
-    
-    public static float proc_part(String text){
-        float out = 0;      // var for final value
-        int operation = 0;  // var to store what operation it should currently do
-        /*  0 ~ +, 
-            1 ~ -, 
-            2 ~ *, 
-            3 ~ / 
-        */              // curretnly works only +
-        float c_num1 = 0;
-        float c_num2 = 0;        
-        
-        while(text_pointer < text.length()){
-            char c = text.charAt(text_pointer);
-            System.out.print(text_pointer);
-            System.out.print(" ");
-            System.out.println(c);
-
-            if(c<='9' && c >= '0'){
-                c_num1 = read_num(text);
-            }else if(c == '+' || c == '*' || c == '/' || c == '-'){
-                System.out.println(operation);
-                switch(operation){
-                    case 0 -> out += c_num1;
-                    case 1 -> out -= c_num1;
-                    default -> System.out.println(operation);
-                }
-                c_num1 = 0;
-                
-                switch(c){
-                    case '+' -> operation = 0;
-                    case '-' -> operation = 1;
-                    //case '*' -> {operation = 2; c_num2 = c_num1;}
-                    //case '/' -> {operation = 3; c_num2 = c_num1;}
-                }
-                System.out.println(out);
-            }
-            text_pointer += 1;
-        }
-        switch(operation){
-            case 0 -> out += c_num1;
-            case 1 -> out -= c_num1;
-            default -> System.out.println(operation);
-        }
-        return out;
-    }
-    
     
     public static float calc_text(String text){
+        return calc_text(text, 0);
+    }
+
+    
+    public static float calc_text(String text, int start){
         solution = true;
-        text_pointer = 0;
-        System.out.print("solving: ");
-        System.out.println(text);
-        float out = proc_part(text);
-        System.out.print("solution: ");
+        float c_num = 0;
+        String c_num_text = "";
+        boolean dot = false;
+        char past_op = '+';
+
+        float out = 0;
+
+        for (int text_p = start; text_p < text.length(); text_p ++){
+            char c = text.charAt(text_p);
+            if ((c >= '0' && c <= '9')){
+                c_num_text += c;
+                continue;
+            }
+            if (c == '.'){
+                if (dot){
+                    solution = false;
+                    return 42;
+                }
+                dot = true;
+                c_num_text += c;
+                continue;
+            }
+            
+
+            
+            if ((c == '+' || c == '-' || c == '*' || c == '/')&& c_num_text.length() > 0){
+                float f = Float.parseFloat(c_num_text);
+                c_num_text = "";
+                switch(past_op){
+                    case '+' -> {out += c_num; c_num = f;}
+                    case '-' -> {out += c_num; c_num = -f;}
+                    case '*' -> {c_num *= f;}
+                    case '/' -> {c_num /= f;}
+                }
+                
+                System.out.println(past_op);
+
+                System.out.println(out);
+                System.out.println(c_num);
+                System.out.println(f);
+                past_op = c;
+            }
+        }
+        if (c_num_text.length() > 0){
+            float f = Float.parseFloat(c_num_text);
+            switch(past_op){
+                case '+' -> {out += f;}
+                case '-' -> {out += -f;}
+                case '*' -> {c_num *= f;}
+                case '/' -> {c_num /= f;}
+            }
+        }
+        out += c_num;
+        System.out.println(past_op);
         System.out.println(out);
+        System.out.println(c_num);
+
         return out;
     }
     
