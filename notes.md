@@ -13,9 +13,9 @@ IDE = Integration Development enviroment
 - - př.: ```int x;```
 
 - deklarace atributů
-- - uvnitř class
-- - př.: ```private int x;```
-- - typy viditelnosti
-- - - private
-- - - public
+  - uvnitř class
+  - př.: ```private int x;```
+  - typy viditelnosti
+    - private
+    - public
 
