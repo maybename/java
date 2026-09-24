@@ -6,16 +6,18 @@ IDE = Integration Development enviroment
  - slouží k ukládání dat běžící aplikace (v RAM)
 
 - implicitní inicializace
-- - má počáteční hodnotu 
-- - př.: ```int x = 5;```
-- bez inicializace
-- - nemá počáteční hodnotu 
-- - př.: ```int x;```
+  - má počáteční hodnotu 
+  - př.: ```int x = 5;```
+  bez inicializace
+  - nemá počáteční hodnotu 
+  - př.: ```int x;```
 
 - deklarace atributů
-  - uvnitř class
-  - př.: ```private int x;```
-  - typy viditelnosti
-    - private
-    - public
+ - uvnitř class
+ - př.: ```private int x;```
+ - typy viditelnosti
+   - private
+   - public
 
+## Datové typy
+ - 
