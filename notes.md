@@ -20,4 +20,9 @@ IDE = Integration Development enviroment
    - public
 
 ## Datové typy
- - 
+ - čísla
+   > short  - celé číslo menší než int
+   > int    - celé číslo
+   > long   - celé číslo větší než int
+   > float  - desetinné číslo
+   > dobble - desetinné číslo s vyšší přesností než float
