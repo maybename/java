@@ -1,8 +1,8 @@
 IDE = Integration Development enviroment
 
 # Proměnné a atributy
-    proměnná = <ins>pojmenované</ins> políčko v RAM s <ins>typem</ins> a <ins>hodnotou</ins>
-    atribut = <ins>proměnná</ins> vázaná ke konkrétnímu <ins>objektu</ins>
+  proměnná = <ins>pojmenované</ins> políčko v RAM s <ins>typem</ins> a <ins>hodnotou</ins>
+  atribut = <ins>proměnná</ins> vázaná ke konkrétnímu <ins>objektu</ins>
  - slouží k ukládání dat běžící aplikace (v RAM)
 
 - implicitní inicializace
@@ -21,8 +21,8 @@ IDE = Integration Development enviroment
 
 ## Datové typy
  - čísla
-   > short  - celé číslo menší než int
-   > int    - celé číslo
-   > long   - celé číslo větší než int
-   > float  - desetinné číslo
-   > dobble - desetinné číslo s vyšší přesností než float
+ > short  - celé číslo menší než int
+ > int    - celé číslo
+ > long   - celé číslo větší než int
+ > float  - desetinné číslo
+ > dobble - desetinné číslo s vyšší přesností než float
