@@ -6,18 +6,15 @@ IDE = Integration Development enviroment
  - slouží k ukládání dat běžící aplikace (v RAM)
 
 - implicitní inicializace
-  - má počáteční hodnotu 
-  - př.: ```int x = 5;```
-  bez inicializace
-  - nemá počáteční hodnotu 
-  - př.: ```int x;```
+  - má počáteční hodnotu - př.: ```int x = 5;```
+- bez inicializace
+  - nemá počáteční hodnotu - př.: ```int x;```
 
 - deklarace atributů
- - uvnitř class
- - př.: ```private int x;```
+ - uvnitř class - př.: ```private int x;```
  - typy viditelnosti
-   - private
-   - public
+   - private - viditelné pouze vrámci této class
+   - public - viditelné všude
 
 ## Datové typy
  - čísla
@@ -26,3 +23,15 @@ IDE = Integration Development enviroment
    - long   - celé číslo větší než int
    - float  - desetinné číslo
    - dobble - desetinné číslo s vyšší přesností než float
+ - text
+   - String - text
+ - var - automaticky detekován, vždy musí být implicitně inicializován
+ - vlastní datové typy
+   - pomocí enum
+   '''
+   enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+   }
+   '''
