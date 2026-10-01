@@ -28,10 +28,10 @@ IDE = Integration Development enviroment
  - var - automaticky detekován, vždy musí být implicitně inicializován
  - vlastní datové typy
    - pomocí enum
-   '''
+   ```
    enum Level {
         LOW,
         MEDIUM,
         HIGH
    }
-   '''
+   ```
