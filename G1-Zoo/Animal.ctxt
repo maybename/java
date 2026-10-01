@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Animal
+comment0.text=\r\n\ Obecn\u00E1\ t\u0159\u00EDda\ zv\u00ED\u0159ete\r\n\ \r\n\ @author\ Luk\u00E1\u0161\ R\u00FDdlo\r\n\ @version\ 1.0\r\n
+comment1.params=speed
+comment1.target=void\ setSpeed(int)
+comment2.params=
+comment2.target=int\ getSpeed()
+comment3.params=probability
+comment3.target=void\ setMovingProbability(double)
+comment4.params=
+comment4.target=double\ getMovingProbability()
+comment5.params=degrees
+comment5.target=void\ setMaxRotationDegrees(int)
+comment6.params=
+comment6.target=int\ getMaxRotationDegrees()
+comment7.params=probability
+comment7.target=void\ setRotationProbability(double)
+comment8.params=
+comment8.target=double\ getRotationProbability()
+comment9.params=
+comment9.target=void\ act()
+comment9.text=\r\n\ \u010Cinnost\ zv\u00ED\u0159ete\ v\ jednom\ kroku\ b\u011Bhu\ programu\r\n
+numComments=10
