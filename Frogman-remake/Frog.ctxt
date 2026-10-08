@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Frog
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ frog\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ die()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ frog\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=boolean\ isAlive()
+comment3.params=
+comment3.target=Direction\ getDirection()
+comment4.params=d
+comment4.target=void\ makeStep(Direction)
+comment5.params=
+comment5.target=void\ procInputs()
+comment6.params=
+comment6.target=void\ act()
+comment7.params=
+comment7.target=Frog()
+numComments=8
