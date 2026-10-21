@@ -38,33 +38,42 @@ public class Frog extends Actor
     }
     
     private void procInputs(){
-        switch(Greenfoot.getKey()){
-            case ("w"): makeStep(Direction.UP); break;
-            case ("s"): makeStep(Direction.DOWN); break;
-            case ("a"): makeStep(Direction.LEFT); break;
-            case ("d"): makeStep(Direction.RIGHT); break;
-            default: break;
+        String lastK = Greenfoot.getKey();
+        if (lastK != null){
+            switch(lastK){
+                case ("w"): makeStep(Direction.UP); break;
+                case ("s"): makeStep(Direction.DOWN); break;
+                case ("a"): makeStep(Direction.LEFT); break;
+                case ("d"): makeStep(Direction.RIGHT); break;
+                default: break;
+            }
+        }
+    }
+    
+    private void orientation(){
+        switch(direction){
+                case LEFT: this.setRotation(180); break;
+                case RIGHT: this.setRotation(0); break;
+                case UP: this.setRotation(-90); break;
+                case DOWN: this.setRotation(90); break;
         }
     }
     
     public void act()
     {
-        if(alive){
-            switch(direction){
-                case LEFT: this.setRotation(180); break;
-                case RIGHT: this.setRotation(0); break;
-                case UP: this.setRotation(-90); break;
-                case DOWN: this.setRotation(90); break;
-            }
-            if (move == true){
-                move = false;
-                this.move(2);
-            }
-            animation.run();
-            start = false;
-        } else{
+        if(!alive){
             this.setImage("deadfrog.png");
+            return;
         }
+        
+        procInputs();
+        orientation();
+        if (move == true){
+            move = false;
+            this.move(60);
+        }
+        animation.run();
+        start = false;
     }
     
     public Frog(){
@@ -73,7 +82,7 @@ public class Frog extends Actor
         for (int i=0; i<imgs.size(); i++) {
             GreenfootImage img = imgs.get(i);
             img.rotate(-90);
-            img.scale(150,150);
+            img.scale(100,80);
             images[i] = img;
         }
         animation = new Animation(this, images);
@@ -83,8 +92,8 @@ public class Frog extends Actor
         
         String filename = "deadfrog.png";
         //deadImg = GreenfootImage(filename);
-        
+        this.orientation();
         alive = true;
-        this.act();
+        
     }
 }
