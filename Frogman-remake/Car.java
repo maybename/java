@@ -55,12 +55,11 @@ public class Car extends Actor
             added = false;
             w = (MyWorld) this.getWorld();
             setSpeed(
-                  (int) w.getRandom()*(currentTrack.getMaxSpeed() - currentTrack.getMinSpeed())+currentTrack.getMinSpeed()
+                  (int) (w.getRandom()*(currentTrack.getMaxSpeed() - currentTrack.getMinSpeed())+currentTrack.getMinSpeed())
                   );
-            setLocation(200,currentTrack.getY());
-            
+            //System.out.println("Car pos: " + this.getX() + " " + this.getY());
         }
-        Frog frog = (Frog) this.getOneIntersectingObject(Frog.class);        
+        Frog frog = (Frog) this.getOneIntersectingObject(Frog.class);     
         if (frog != null){
             frog.die();
             overdroveFrog = true;
@@ -69,21 +68,40 @@ public class Car extends Actor
         }
         
         rotate();
-        if (this.isTouching(Car.class)){
-            speed = 0;
-            countDown = 1000;
-            return;
+        
+        Car crashedCar = (Car) this.getOneIntersectingObject(Car.class);
+        if (crashedCar != null){
+            int diffX = this.getX() - crashedCar.getX();
+            int diffY = this.getY() - crashedCar.getY();
+            boolean crashed = false;
+            switch(direction){
+                case LEFT: crashed = diffX > 0; break;
+                case RIGHT: crashed = diffX < 0; break;
+                case UP: crashed = diffY > 0; break;
+                case DOWN: crashed = diffY < 0; break;
+            }
+            if(crashed){
+                System.out.println(""+this.getX()+" "+this.getY()+" "+diffX+" "+diffY);
+                countDown = (int) (w.getRandom()*1000);
+                return;
+            }
         }
         
         if (countDown > 0){
+            System.out.println("Countdown: "+(countDown --));
             countDown --;
             return;
         }
         
         this.move(this.speed);
-        int world_length = this.getWorld().getWidth();
-        if (this.getX() < 2){
-            this.setLocation(world_length + 200, this.getY());
+        
+        if (this.getX() < 2 && direction == Direction.LEFT){
+            this.setLocation(w.getWidth(), this.getY());
+            return;
+        }
+        if (this.getX() > w.getWidth()-2 && direction == Direction.RIGHT){
+            this.setLocation(0, this.getY());
+            return;
         }
     }
     
@@ -93,7 +111,7 @@ public class Car extends Actor
         img.scale(150, 75);
         this.setImage(img);
         currentTrack = track;
-        
+        this.setDirection(track.getDirection());
         rotate();
         //setSpeed(MyWorld.randomNumbers.nextInt(7) + 2);
     }

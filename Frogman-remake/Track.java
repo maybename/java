@@ -51,7 +51,7 @@ public class Track extends Actor
         posY = Y;
         this.maxSpeed = maxSpeed;
         this.minSpeed = minSpeed;
-        this.maxCount = maxCount;
-        this.direction = direction;
+        this.maxCount = (maxCount > 0) ? maxCount : 0;
+        this.direction = (direction == Direction.UP || direction == Direction.DOWN)? Direction.LEFT:direction;
     }
 }

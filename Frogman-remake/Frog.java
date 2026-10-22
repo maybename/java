@@ -10,6 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Frog extends Actor
 {
+    private static int speed = 40;
     private Animation animation;
     private boolean move = false;
     private boolean alive = false;
@@ -21,6 +22,7 @@ public class Frog extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void die(){
+        this.setImage(deadImg);
         alive = false;
     }
     
@@ -62,7 +64,6 @@ public class Frog extends Actor
     public void act()
     {
         if(!alive){
-            this.setImage("deadfrog.png");
             return;
         }
         
@@ -70,19 +71,26 @@ public class Frog extends Actor
         orientation();
         if (move == true){
             move = false;
-            this.move(60);
+            this.move(speed);
         }
         animation.run();
         start = false;
     }
     
     public Frog(){
+        
+        this.setImage("deadfrog.png");
+        deadImg = this.getImage();
+        deadImg.scale(65,60);
+        this.orientation();
+        
+        
         java.util.List<GreenfootImage> imgs = new GifImage("top.gif").getImages();
         GreenfootImage[] images = new GreenfootImage[imgs.size()];
         for (int i=0; i<imgs.size(); i++) {
             GreenfootImage img = imgs.get(i);
             img.rotate(-90);
-            img.scale(100,80);
+            img.scale(50,40);
             images[i] = img;
         }
         animation = new Animation(this, images);
@@ -90,10 +98,6 @@ public class Frog extends Actor
         animation.run();
         animation.setActiveState(true);
         
-        String filename = "deadfrog.png";
-        //deadImg = GreenfootImage(filename);
-        this.orientation();
         alive = true;
-        
     }
 }
