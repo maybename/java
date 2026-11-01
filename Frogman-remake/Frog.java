@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class frog here.
  * 
@@ -14,7 +14,6 @@ public class Frog extends Actor
     private Animation animation;
     private boolean move = false;
     private boolean alive = false;
-    private boolean start = true;
     private Direction direction = Direction.UP;
     private GreenfootImage deadImg;
     /**
@@ -74,7 +73,19 @@ public class Frog extends Actor
             this.move(speed);
         }
         animation.run();
-        start = false;
+        
+        // river colisions...
+        if (this.isTouching(Log.class)){
+            return;
+        }
+        for(Actor river: getIntersectingObjects(River.class)){
+            if(Math.abs(river.getY() - this.getY()) > 10){
+                die();
+                this.setImage("empty.png");
+            }
+        }
+        
+        
     }
     
     public Frog(){

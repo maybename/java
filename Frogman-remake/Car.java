@@ -81,17 +81,12 @@ public class Car extends Actor
                 case DOWN: crashed = diffY < 0; break;
             }
             if(crashed){
-                System.out.println(""+this.getX()+" "+this.getY()+" "+diffX+" "+diffY);
-                countDown = (int) (w.getRandom()*1000);
+                //System.out.println(""+this.getX()+" "+this.getY()+" "+diffX+" "+diffY);
+                this.sleepFor((int) (w.getRandom()*250));
                 return;
             }
         }
         
-        if (countDown > 0){
-            System.out.println("Countdown: "+(countDown --));
-            countDown --;
-            return;
-        }
         
         this.move(this.speed);
         
