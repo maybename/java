@@ -14,6 +14,7 @@ public class Track extends Actor
     private int count = 0;
     private Direction direction;
     private World w = this.getWorld();
+    private boolean added = true;
     
     public int getY(){return posY;}
     public int getMaxSpeed(){return maxSpeed;}
@@ -53,5 +54,16 @@ public class Track extends Actor
         this.minSpeed = minSpeed;
         this.maxCount = (maxCount > 0) ? maxCount : 0;
         this.direction = (direction == Direction.UP || direction == Direction.DOWN)? Direction.LEFT:direction;
+    }
+    public void act(){
+        if (added){
+            this.w = this.getWorld();
+            GreenfootImage bkg_img = this.getImage();
+            bkg_img.scale(w.getWidth(),80);
+            this.setImage(bkg_img);
+            this.setLocation(w.getWidth()/2, posY);
+            added = false;
+            return;
+        }
     }
 }

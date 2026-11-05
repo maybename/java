@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Frog extends Actor
 {
-    private static int speed = 40;
+    private static int speed = 80;
     private Animation animation;
     private boolean move = false;
     private boolean alive = false;
@@ -79,13 +79,9 @@ public class Frog extends Actor
             return;
         }
         for(Actor river: getIntersectingObjects(River.class)){
-            if(Math.abs(river.getY() - this.getY()) > 10){
-                die();
-                this.setImage("empty.png");
-            }
+            die();
+            this.setImage("empty.png");
         }
-        
-        
     }
     
     public Frog(){

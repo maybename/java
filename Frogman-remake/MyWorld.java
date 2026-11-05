@@ -30,21 +30,25 @@ public class MyWorld extends World
         carTracks.add(new Track(360,8,2,6,Direction.RIGHT));
         carTracks.add(new Track(440,8,2,6,Direction.LEFT));
         //carTracks.add(new Track(520,8,2,6,Direction.RIGHT));
-        this.addObject(new Frog(), 1200/2, 700);
+        this.addObject(new Frog(), 1200/2, 680);
         rivers.add(new River(520,2,6,Direction.RIGHT));
         carNum = 6;
         logNum = 2;
     }
     public MyWorld()
-    {    
+    {   
         super(1200, 760, 1);
-        this.setPaintOrder(Car.class, Frog.class, Log.class, River.class);
-        this.addObject(new Game(), 0, 0);
+        this.setPaintOrder(Game.class, Car.class, Frog.class, Log.class, River.class);
+        this.addObject(new Game(), 600, 380);
         
         loadLevel1();
         randomNumbers = new Random(seed);
         
         for (River r: rivers){
+            this.addObject(r, 1200/2, r.getY());
+        }
+        
+        for (Track r: carTracks){
             this.addObject(r, 1200/2, r.getY());
         }
         
