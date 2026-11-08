@@ -12,18 +12,45 @@ import javax.swing.JComponent;
  *
  * @author xelias1
  */
-public class TicTacWidget extends JComponent{
 
+
+public class TicTacWidget extends JComponent {
+
+    private TicTacType type = TicTacType.NONE;
+
+    /**
+     *
+     * @param type
+     * sets parameter type of this widget, if it wasn't already set
+     */
+    public void setType(TicTacType type){
+        if (this.type != TicTacType.NONE){
+            return;
+        }
+        this.type = type;
+        this.repaint();
+    }
+    
+    public TicTacType getType(){
+        return type;
+    }
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        g.setColor(Color.red);
-        g.drawLine(0, 0, this.getWidth(), this.getHeight());
-        g.drawLine(0, this.getHeight(), this.getWidth(), 0);
-        
+        switch (type) {
+            case CROSS -> {
+                g.setColor(Color.red);
+                g.drawLine(0, 0, this.getWidth(), this.getHeight());
+                g.drawLine(0, this.getHeight(), this.getWidth(), 0);
+            }
+            case CIRCLE -> {
+                g.setColor(Color.blue);
+                g.drawOval(0, 0, this.getWidth(), this.getHeight());
+            }
+        }
+        g.setColor(Color.BLACK);
+        g.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1);
     }
 
-    
-    
-    
 }
