@@ -4,20 +4,32 @@
  */
 package cz.gml.xelias1.tic_tac;
 
+
+
+import java.util.Set;
+import java.util.HashSet;
+
 /**
  *
  * @author xelias1
  */
 public class MainFrame extends javax.swing.JFrame {
-    
+    public static final int TILE_COUNT_ROW = 3;
+    public static final int TILE_COUNT_COLUMS = 3;
+
+    private Set<cz.gml.xelias1.tic_tac.TicTacWidget> tiles;
+        
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
     private Game game;
-    /** 
+
+    /**
      * Creates new form mainFrame
      */
     public MainFrame() {
-        initComponents();
+        this.tiles = new HashSet<>();
         this.game = new Game();
+        initComponents();
+
     }
 
     /**
@@ -41,65 +53,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ticTacWidget1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget1MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget2MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget3MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget4MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget5MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget6MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget7MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget8MouseClicked(evt);
-            }
-        });
-
-        ticTacWidget9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticTacWidget9MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ticTacWidget1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,98 +73,36 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ticTacWidget4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ticTacWidget8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ticTacWidget9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ticTacWidget8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ticTacWidget7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 88, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ticTacWidget1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ticTacWidget3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ticTacWidget2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ticTacWidget1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ticTacWidget6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ticTacWidget4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ticTacWidget5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ticTacWidget6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ticTacWidget7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ticTacWidget8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ticTacWidget9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ticTacWidget1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget1MouseClicked
-        if(ticTacWidget1.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget1.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget1MouseClicked
-
-    private void ticTacWidget2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget2MouseClicked
-        if(ticTacWidget2.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget2.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget2MouseClicked
-
-    private void ticTacWidget3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget3MouseClicked
-        if(ticTacWidget3.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget3.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget3MouseClicked
-
-    private void ticTacWidget4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget4MouseClicked
-        if(ticTacWidget4.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget4.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget4MouseClicked
-
-    private void ticTacWidget5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget5MouseClicked
-        if(ticTacWidget5.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget5.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget5MouseClicked
-
-    private void ticTacWidget6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget6MouseClicked
-        if(ticTacWidget6.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget6.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget6MouseClicked
-
-    private void ticTacWidget7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget7MouseClicked
-        if(ticTacWidget7.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget7.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget7MouseClicked
-
-    private void ticTacWidget8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget8MouseClicked
-        if(ticTacWidget8.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget8.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget8MouseClicked
-
-    private void ticTacWidget9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticTacWidget9MouseClicked
-        if(ticTacWidget9.getType() != TicTacType.NONE){
-            return;
-        }
-        ticTacWidget9.setType(game.makeMove());
-    }//GEN-LAST:event_ticTacWidget9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -231,7 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget1;
     private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget2;
