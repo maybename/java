@@ -17,11 +17,32 @@ import javax.swing.JComponent;
  */
 
 
-public class TicTacPlan extends JComponent {
-    public TicTacPlan(int height, int width) {
-        
-    }
+public class TicTacWidget extends JComponent {
 
+    private TicTacType type = TicTacType.NONE;
+
+    /**
+     *
+     * @param type
+     * sets parameter type of this widget, if it wasn't already set
+     */
+    public void setType(TicTacType type){
+        if (this.type != TicTacType.NONE) return;
+        this.type = type;
+        this.repaint();
+    }
+    
+    public TicTacType getType(){
+        return type;
+    }
+    
+    public void MouseClicked(java.awt.event.MouseEvent evt, Game game) {                                           
+        if (this.getType() != TicTacType.NONE) {
+            return;
+        }
+        this.setType(game.makeMove());
+    }
+    
     @Override
     protected void paintComponent(Graphics g) {
         int offset = 4;
@@ -39,6 +60,8 @@ public class TicTacPlan extends JComponent {
                 g.drawOval(0, 0, this.getWidth(), this.getHeight());
             }
         }
+        g.setColor(Color.BLACK);
+        g.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1);
     }
    
 }
