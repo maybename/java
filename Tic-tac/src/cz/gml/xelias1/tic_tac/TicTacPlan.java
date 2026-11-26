@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
+import java.awt.FlowLayout;
 
 import javax.swing.JComponent;
 
@@ -17,51 +18,42 @@ import javax.swing.JComponent;
  */
 
 
-public class TicTacWidget extends JComponent {
-
-    private TicTacType type = TicTacType.NONE;
+public class TicTacPlan extends JComponent {
+    private TicTacWidget[][] tiles;
+    private int height, width;
+    private TicTacModel model;
 
     /**
      *
-     * @param type
-     * sets parameter type of this widget, if it wasn't already set
+     * @param model
      */
-    public void setType(TicTacType type){
-        if (this.type != TicTacType.NONE) return;
-        this.type = type;
-        this.repaint();
+    public void setModel(TicTacModel model){
+        this.model = model;
+        //height = model.getHeight();
+        //width = model.getWidth();
     }
-    
-    public TicTacType getType(){
-        return type;
-    }
-    
-    public void MouseClicked(java.awt.event.MouseEvent evt, Game game) {                                           
-        if (this.getType() != TicTacType.NONE) {
-            return;
+    public TicTacPlan(){
+        height = 3;
+        width = 3;
+        tiles = new TicTacWidget[height][width];
+        
+        setLayout(new FlowLayout());
+        for (int i = 0; i < height; i ++){
+            for (int j = 0; j < width; j ++){
+                TicTacWidget tile = new TicTacWidget();
+                tiles[i][j] = tile;
+                add(tile);
+            }
         }
-        this.setType(game.makeMove());
     }
-    
+
     @Override
     protected void paintComponent(Graphics g) {
-        int offset = 4;
-        super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setStroke(new BasicStroke(8));
-        switch (type) {
-            case CROSS -> {
-                g.setColor(Color.red);
-                g.drawLine(offset, offset, this.getWidth()-offset, this.getHeight()-offset);
-                g.drawLine(0, this.getHeight() - 2*offset, this.getWidth() - 2*offset, 0);
-            }
-            case CIRCLE -> {
-                g.setColor(Color.blue);
-                g.drawOval(0, 0, this.getWidth(), this.getHeight());
+        for (int i = 0; i < height; i ++){
+            for (int j = 0; j < width; j ++){
+                tiles[i][j].setType(TicTacType.NONE);
             }
         }
-        g.setColor(Color.BLACK);
-        g.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1);
     }
    
 }

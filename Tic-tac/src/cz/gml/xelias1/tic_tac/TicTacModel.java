@@ -1,8 +1,9 @@
+package cz.gml.xelias1.tic_tac;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import cz.gml.xelias1.tic_tac.TicTacType;
 
 /**
  *
@@ -37,6 +38,18 @@ public class TicTacModel {
         return width;
     }    
     
+    public void setTileType(int x, int y, TicTacType type){
+        if (x < width && x > 0) throw new ArrayIndexOutOfBoundsException("Bad X");
+        if (y < height && y > 0) throw new ArrayIndexOutOfBoundsException("Bad Y");
+        
+        plan[y][x] = type;
+    }
+    public TicTacType getTileType(int x, int y){
+        if (x < width && x > 0) throw new ArrayIndexOutOfBoundsException("Bad X");
+        if (y < height && y > 0) throw new ArrayIndexOutOfBoundsException("Bad Y");
+        
+        return plan[y][x];
+    }
     
     public TicTacType makeMove(){
         TicTacType out = currentPlayer;
@@ -48,4 +61,22 @@ public class TicTacModel {
         
         return out;
     }
+
+    @Override
+    public String toString() {
+        String result = super.toString()+"TicTacModel{" + "currentPlayer=" + currentPlayer + ", height=" + height + ", width=" + width + ", plan=";
+        for (int y = 0; y<height;y++){
+            for (int x = 0; x<width;x++){
+                String symbol = " ";
+                switch(plan[y][x]){
+                    case CIRCLE -> symbol = "O";
+                    case CROSS -> symbol = "X";
+                }
+                result += (symbol + "|");
+            }
+            result += "\n";
+        }
+        return result;
+    }
+    
 }

@@ -36,19 +36,16 @@ public class TicTacWidget extends JComponent {
         return type;
     }
     
-    public void MouseClicked(java.awt.event.MouseEvent evt, Game game) {                                           
-        if (this.getType() != TicTacType.NONE) {
-            return;
-        }
-        this.setType(game.makeMove());
-    }
-    
     @Override
     protected void paintComponent(Graphics g) {
+        System.out.println("painting tiles...");
         int offset = 4;
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(2));
+        g.drawRect(0, 0, this.getWidth(), this.getHeight());
         g2.setStroke(new BasicStroke(8));
+
         switch (type) {
             case CROSS -> {
                 g.setColor(Color.red);
@@ -60,8 +57,6 @@ public class TicTacWidget extends JComponent {
                 g.drawOval(0, 0, this.getWidth(), this.getHeight());
             }
         }
-        g.setColor(Color.BLACK);
-        g.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1);
     }
    
 }

@@ -35,3 +35,14 @@ IDE = Integration Development enviroment
         HIGH
    }
    ```
+
+
+# Nápady, struktury a postupy
+## MVC přístup
+- Model view controller
+### MODEL
+- třídy, které nesou informace = popisují data
+### VIEW
+- třídy, které jsou zodpovědné za zobrazení - napojené na model
+### CONTROLLER
+- třídy, které mění data modelu = herní logika

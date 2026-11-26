@@ -11,5 +11,6 @@ package cz.gml.xelias1.tic_tac;
 public enum TicTacType {
     CROSS,
     CIRCLE,
-    NONE
+    NONE;
+
 }

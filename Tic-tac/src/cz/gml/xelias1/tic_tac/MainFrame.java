@@ -4,31 +4,22 @@
  */
 package cz.gml.xelias1.tic_tac;
 
-
-
-import java.util.Set;
-import java.util.HashSet;
-
 /**
  *
  * @author xelias1
  */
 public class MainFrame extends javax.swing.JFrame {
-    public static final int TILE_COUNT_ROW = 3;
-    public static final int TILE_COUNT_COLUMS = 3;
-
-    private Set<cz.gml.xelias1.tic_tac.TicTacWidget> tiles;
         
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
-    private Game game;
+    private TicTacModel gameData;
 
     /**
      * Creates new form mainFrame
      */
     public MainFrame() {
-        this.tiles = new HashSet<>();
-        this.game = new Game();
+        gameData = new TicTacModel(4,5);
         initComponents();
+        ticTacPlan1.setModel(gameData);
 
     }
 
@@ -41,15 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ticTacWidget1 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget2 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget3 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget4 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget5 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget6 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget7 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget8 = new cz.gml.xelias1.tic_tac.TicTacWidget();
-        ticTacWidget9 = new cz.gml.xelias1.tic_tac.TicTacWidget();
+        ticTacPlan1 = new cz.gml.xelias1.tic_tac.TicTacPlan();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,47 +40,16 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ticTacWidget1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ticTacWidget6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ticTacWidget9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticTacWidget7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addComponent(ticTacPlan1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ticTacWidget3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ticTacWidget4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ticTacWidget7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ticTacWidget9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ticTacPlan1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -130,14 +82,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget1;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget2;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget3;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget4;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget5;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget6;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget7;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget8;
-    private cz.gml.xelias1.tic_tac.TicTacWidget ticTacWidget9;
+    private cz.gml.xelias1.tic_tac.TicTacPlan ticTacPlan1;
     // End of variables declaration//GEN-END:variables
 }
